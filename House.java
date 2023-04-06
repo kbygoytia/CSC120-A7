@@ -56,10 +56,12 @@ public class House extends Building {
     return this.hasDiningRoom;
   }
 
+  /** Accessor for hasKitchen */
   public boolean hasKitchen(){
     return this.hasKitchen;
   }
 
+  /** Accessor for hasElevator */
   public boolean hasElevator() {
     return this.hasElevator;
   }
@@ -69,7 +71,11 @@ public class House extends Building {
     return this.residents.size();
   }
 
-
+/**
+ * moves in a string name into the house if they do not already live there
+ * @param name
+ * 
+ */
   public void moveIn(String name) {
     // check if this.residents contains name
     try{
@@ -84,11 +90,7 @@ public class House extends Building {
       System.out.println(e);
     }
   }
-/**
- * moves in a string name into the house if they do not already live there
- * @param name
- * 
- */
+
 
   public String moveOut(String name){
     try{

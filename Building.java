@@ -16,7 +16,7 @@ public class Building {
         this.address = address; // Override address
     }
 
-    /* Overloaded constructor with name, address */
+    /* Overloaded constructor with name and address */
     public Building(String name, String address) {
         this(name, address, 1); // Call full constructor with hard-coded # floors
     }
@@ -31,15 +31,16 @@ public class Building {
         this.nFloors = nFloors;
     }
 
-    /* Accessors */
+    /* Accessor for name */
     public String getName() {
         return this.name;
     }
-
+     /* Accessor for address */
     public String getAddress() {
         return this.address;
     }
 
+     /* Accessor for amount of floors */
     public int getFloors() {
         return this.nFloors;
     }
@@ -54,6 +55,7 @@ public class Building {
         return this; // Return a pointer to the current building
     }
 
+
     public Building exit() {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before exit().");
@@ -66,6 +68,10 @@ public class Building {
         return null; // We're outside now, so the building is null
     }
 
+    /**
+     * Allows a person to go to a certain floor if they are inside the building and if the floor number they want to go to is greater than 1.
+     * @param floorNum
+     */
     public void goToFloor(int floorNum) {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
@@ -77,14 +83,17 @@ public class Building {
         this.activeFloor = floorNum;
     }
 
+    /* Accessor for going up floors*/
     public void goUp() {
         this.goToFloor(this.activeFloor + 1);
     }
 
+    /* Accessor for going down floors */
     public void goDown() {
         this.goToFloor(this.activeFloor - 1);
     }
 
+    /* Accessor for showing options in each building */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
     }

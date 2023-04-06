@@ -30,12 +30,13 @@ public class Library extends Building{
     public Hashtable<String, Boolean> getCollection() {
       return this.collection;
     }
-    /**
-     * Looks for a title inside of the library's collection
-     * @param title inside of collection
-     * @return this.collection
-     */
 
+
+     /**
+     * adds the String title specified in main into the collection
+     * @param title
+     * 
+     */
     public void addTitle(String title){
       try{
         if(this.collection.containsKey(title)){
@@ -51,20 +52,25 @@ public class Library extends Building{
         } 
     }
 
+    /**
+     * Overloaded method
+     * adds a book title that was originally an integer into the collection after converting it to a string
+     * @param title_num
+     */
     public void addTitle(int title_num){
       String title = String.valueOf(title_num);
       this.addTitle(title);
     }
-    /**
-     * adds the String title specified in main into the collection
-     * @param title
-     * 
-     */
 
     public boolean hasElevator(){
         return this.hasElevator;
     }
 
+    /**
+     * Removes a book title from the collection
+     * @param title
+     * @return title
+     */
     public String removeTitle(String title){
       try{
         if(!this.collection.containsKey(title)){
@@ -81,18 +87,22 @@ public class Library extends Building{
         return(title); 
   }
 
+  /**
+   * Overloaded method
+   * Removes a title from the collection that has an int title but that int title is converted to a string so that it can be removed. 
+   * @param title_num
+   * @return this.removeTitle(title)
+   */
   public String removeTitle(int title_num){
     String title = String.valueOf(title_num);
     return this.removeTitle(title);
     }
-  /**
-   * removes a string title from the collection
-   * @param title
-   * @return title
-   */
 
   
-
+     /**
+     * checks out a key string title by turning it's value false
+     * @param title
+     */
     public void checkOut(String title){
       try{
         if(!this.collection.containsKey(title)){
@@ -111,17 +121,23 @@ public class Library extends Building{
         } 
     }
 
+    /**
+     * Overloaded method
+     * checks out a book title from the collection that has an int title but that int title is converted to a string title
+     * @param title_num
+     */
     public void checkOut(int title_num){
       String title = String.valueOf(title_num);
       this.checkOut(title);
       }
 
-    /**
-     * checks out a key string title by turning it's value false
+   
+
+      /**
+     * returns key string title by chaning value to true
      * @param title
+     * 
      */
-
-
     public void returnBook(String title){
       try{
         if(!this.collection.containsKey(title)){
@@ -139,20 +155,26 @@ public class Library extends Building{
            
         } 
     }
-
+    /**
+     * Overloaded method
+     * returns an int title by converting int title to string title and chaning value to true
+     * @param title
+     * 
+     */
     public void returnBook(int title_num){
       String title = String.valueOf(title_num);
       this.returnBook(title);
       }
-    /**
-     * returns key string title by chaning value to true
-     * @param title
-     * 
-     */
+  
 
   
 
     // returns true if the title appears as a key in the Libary's collection, false otherwise
+     /**
+     * checks if collection conatins a string title
+     * @param title
+     * @return boolean
+     */
     public boolean containsTitle(String title){
       if(this.collection.containsKey(title)){
         return true;
@@ -162,20 +184,27 @@ public class Library extends Building{
       }
     } 
 
+    /**
+     * Overloaded method
+     * checks if the collection contains int title by converting it to a string title and returning a boolean. 
+     * @param title_num
+     * @return this.containsTitle(title)
+     */
     public boolean containsTitle(int title_num){
       String title = String.valueOf(title_num);
       return this.containsTitle(title);
       }
-    /**
-     * checks if collection conatins a string title
-     * @param title
-     * @return boolean
-     */
+   
 
     
 
 
     // returns true if the title is currently available, false otherwise
+    /**
+       * checks if a key string title is available in collection by looking at its value boolean to see if it is true
+       * @param title
+       * @return boolean
+       */
     public boolean isAvailable(String title){
       if (this.collection.get(title).equals(true)){
         return true;
@@ -184,16 +213,17 @@ public class Library extends Building{
         return false;
         }
       }
-
+      /**
+       * Overloaded method
+       * checks if an int title is available by covnerting it to a string and checking availability via boolean
+       * @param title_num
+       * @return this.isAvailable(title)
+       */
       public boolean isAvailable(int title_num){
         String title = String.valueOf(title_num);
         return this.isAvailable(title);
         }
-      /**
-       * checks if a key string title is available in collection by looking at its value boolean to see if it is true
-       * @param title
-       * @return boolean
-       */
+      
 
       public String toString() {
         String description = super.toString();
